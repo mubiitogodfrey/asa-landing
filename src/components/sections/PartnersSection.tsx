@@ -10,9 +10,8 @@ export const PartnersSection = () => {
       transition: {
         x: {
           repeat: Infinity,
-          repeatType: 'loop',
+          repeatType: 'loop' as const,
           duration: 30,
-          ease: 'linear',
         },
       },
     },
