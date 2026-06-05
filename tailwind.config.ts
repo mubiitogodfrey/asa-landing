@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -10,17 +11,18 @@ const config: Config = {
     extend: {
       colors: {
         cyber: {
-          blue: '#00B8FF',
-          purple: '#7A00FF',
-          green: '#00D26A',
-          gold: '#FFC400',
+          blue: 'var(--cyber-blue)',
+          purple: 'var(--cyber-purple)',
+          green: 'var(--cyber-green)',
+          gold: 'var(--cyber-gold)',
           black: '#050505',
           surface: '#0B0F17',
         },
         text: {
-          primary: '#FFFFFF',
-          secondary: '#B8C0CC',
+          primary: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
         },
+        'dark-surface': 'var(--surface)',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
