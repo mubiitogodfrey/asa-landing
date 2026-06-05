@@ -13,9 +13,9 @@ export const NavigationMenu = () => {
     visible: {
       x: 0,
       opacity: 1,
-      transition: { duration: 0.3, ease: 'easeInOut' },
+      transition: { duration: 0.3 },
     },
-    exit: { x: '100%', opacity: 0, transition: { duration: 0.3, ease: 'easeInOut' } },
+    exit: { x: '100%', opacity: 0, transition: { duration: 0.3 } },
   };
 
   const overlayVariants = {
