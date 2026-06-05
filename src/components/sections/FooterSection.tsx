@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Youtube, Github, X } from 'lucide-react';
+import { Mail, Phone, MapPin, Play, ExternalLink, Link } from 'lucide-react';
 import { products, resources, contactInfo, socialLinks } from '@/lib/constants';
 import { Button } from '@/components/ui/Button';
 
@@ -28,13 +28,13 @@ export const FooterSection = () => {
 
   const getSocialIcon = (iconName: string) => {
     const icons: Record<string, any> = {
-      LinkedIn: Linkedin,
-      Youtube: Youtube,
-      Github: Github,
-      X: X,
-      Instagram: Mail, // Placeholder since Lucide doesn't have Instagram
+      LinkedIn: ExternalLink,
+      Youtube: Play,
+      Github: Link,
+      X: ExternalLink,
+      Instagram: ExternalLink,
     };
-    return icons[iconName] || Mail;
+    return icons[iconName] || ExternalLink;
   };
 
   return (
