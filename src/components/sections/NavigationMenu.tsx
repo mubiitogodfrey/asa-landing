@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { X, Menu } from 'lucide-react';
 import { navigationItems, socialLinks } from '@/lib/constants';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 export const NavigationMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,14 +27,20 @@ export const NavigationMenu = () => {
 
   return (
     <>
-      {/* Menu Button */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed top-6 right-6 z-40 p-3 glass rounded-lg hover:bg-cyber-blue/10 transition-colors"
-        aria-label="Open menu"
-      >
-        <Menu className="w-6 h-6 text-cyber-blue" />
-      </button>
+      {/* Menu Controls */}
+      <div className="fixed top-6 right-6 z-40 flex gap-3">
+        {/* Theme Toggle */}
+        <ThemeToggle />
+        
+        {/* Menu Button */}
+        <button
+          onClick={() => setIsOpen(true)}
+          className="p-3 glass rounded-lg hover:bg-cyber-blue/10 transition-colors"
+          aria-label="Open menu"
+        >
+          <Menu className="w-6 h-6 text-cyber-blue" />
+        </button>
+      </div>
 
       {/* Overlay */}
       {isOpen && (
