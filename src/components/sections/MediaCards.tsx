@@ -42,8 +42,15 @@ export const MediaCards = ({ onCardSelect }: { onCardSelect: (cardId: number) =>
   };
 
   const getIconComponent = (iconName: string) => {
-    const icon = Icons[iconName as keyof typeof Icons];
-    return icon ? icon : Icons.Shield;
+    const icons: Record<string, React.ReactNode> = {
+      Shield: <Icons.Shield className="w-6 h-6" />,
+      Mail: <Icons.Mail className="w-6 h-6" />,
+      Calendar: <Icons.Calendar className="w-6 h-6" />,
+      Mic2: <Icons.Mic2 className="w-6 h-6" />,
+      Zap: <Icons.Zap className="w-6 h-6" />,
+      Headphones: <Icons.Headphones className="w-6 h-6" />,
+    };
+    return icons[iconName] || <Icons.Shield className="w-6 h-6" />;
   };
 
   return (
@@ -52,7 +59,7 @@ export const MediaCards = ({ onCardSelect }: { onCardSelect: (cardId: number) =>
       <div className="overflow-x-auto pb-4">
         <div className="flex gap-4 min-w-min px-4 md:px-0">
           {mediaCards.map((card, index) => {
-            const IconComponent = getIconComponent(card.icon);
+            const icon = getIconComponent(card.icon);
             const isActive = activeCard === index;
 
             return (
@@ -68,7 +75,7 @@ export const MediaCards = ({ onCardSelect }: { onCardSelect: (cardId: number) =>
               >
                 <div className="flex items-start gap-4">
                   <div className={`p-3 rounded-lg glass-${card.accent}`}>
-                    <IconComponent className="w-6 h-6" />
+                    {icon}
                   </div>
                   <div className="flex-1">
                     <h3 className="font-bold text-sm text-white mb-1">{card.title}</h3>
@@ -113,14 +120,14 @@ export const MediaCards = ({ onCardSelect }: { onCardSelect: (cardId: number) =>
           >
             {(() => {
               const card = mediaCards[activeCard];
-              const IconComponent = getIconComponent(card.icon);
+              const icon = getIconComponent(card.icon);
 
               return (
                 <>
                   <div>
                     <div className="flex items-center gap-3 mb-4">
                       <div className={`p-3 rounded-lg glass-${card.accent}`}>
-                        <IconComponent className="w-6 h-6" />
+                        {icon}
                       </div>
                       <h2 className="text-2xl font-bold text-white">{card.title}</h2>
                     </div>
