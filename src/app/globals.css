@@ -18,6 +18,18 @@
   --cyber-gold: #FFC400;
 }
 
+/* Light mode variables */
+html.light {
+  --background: #F8F9FA;
+  --surface: #FFFFFF;
+  --text-primary: #1A202C;
+  --text-secondary: #4A5568;
+  --cyber-blue: #0073E6;
+  --cyber-purple: #6C00E6;
+  --cyber-green: #00A854;
+  --cyber-gold: #CC9F00;
+}
+
 html,
 body {
   width: 100%;
@@ -75,11 +87,21 @@ body {
   border: 1px solid rgba(0, 184, 255, 0.1);
 }
 
+html.light .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 115, 230, 0.2);
+}
+
 .glass-purple {
   background: rgba(122, 0, 255, 0.05);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(122, 0, 255, 0.2);
+}
+
+html.light .glass-purple {
+  background: rgba(108, 0, 230, 0.08);
+  border: 1px solid rgba(108, 0, 230, 0.3);
 }
 
 .glass-green {
@@ -89,11 +111,21 @@ body {
   border: 1px solid rgba(0, 210, 106, 0.2);
 }
 
+html.light .glass-green {
+  background: rgba(0, 168, 84, 0.08);
+  border: 1px solid rgba(0, 168, 84, 0.3);
+}
+
 .glass-gold {
   background: rgba(255, 196, 0, 0.05);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 196, 0, 0.2);
+}
+
+html.light .glass-gold {
+  background: rgba(204, 159, 0, 0.08);
+  border: 1px solid rgba(204, 159, 0, 0.3);
 }
 
 /* Terminal frame effect */
@@ -102,6 +134,11 @@ body {
   border-radius: 4px;
   position: relative;
   background: rgba(5, 5, 5, 0.5);
+}
+
+html.light .terminal-frame {
+  border: 1px solid rgba(0, 115, 230, 0.3);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .terminal-frame::before {
@@ -119,10 +156,24 @@ body {
   );
 }
 
+html.light .terminal-frame::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 115, 230, 0.3),
+    transparent
+  );
+}
+
 /* Neon glow effects */
 .neon-glow {
   text-shadow: 0 0 10px rgba(0, 184, 255, 0.5),
                0 0 20px rgba(0, 184, 255, 0.3);
+}
+
+html.light .neon-glow {
+  text-shadow: 0 0 10px rgba(0, 115, 230, 0.4),
+               0 0 20px rgba(0, 115, 230, 0.2);
 }
 
 .neon-glow-purple {
@@ -130,14 +181,29 @@ body {
                0 0 20px rgba(122, 0, 255, 0.3);
 }
 
+html.light .neon-glow-purple {
+  text-shadow: 0 0 10px rgba(108, 0, 230, 0.4),
+               0 0 20px rgba(108, 0, 230, 0.2);
+}
+
 .neon-glow-green {
   text-shadow: 0 0 10px rgba(0, 210, 106, 0.5),
                0 0 20px rgba(0, 210, 106, 0.3);
 }
 
+html.light .neon-glow-green {
+  text-shadow: 0 0 10px rgba(0, 168, 84, 0.4),
+               0 0 20px rgba(0, 168, 84, 0.2);
+}
+
 .neon-glow-gold {
   text-shadow: 0 0 10px rgba(255, 196, 0, 0.5),
                0 0 20px rgba(255, 196, 0, 0.3);
+}
+
+html.light .neon-glow-gold {
+  text-shadow: 0 0 10px rgba(204, 159, 0, 0.4),
+               0 0 20px rgba(204, 159, 0, 0.2);
 }
 
 /* Selection styling */
