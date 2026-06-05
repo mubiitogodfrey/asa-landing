@@ -47,18 +47,21 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              try {
-                const theme = localStorage.getItem('theme') || 'dark';
-                if (theme === 'light') {
-                  document.documentElement.classList.remove('dark');
-                  document.documentElement.classList.add('light');
-                } else {
-                  document.documentElement.classList.add('dark');
-                  document.documentElement.classList.remove('light');
-                }
-              } catch (e) {
-                document.documentElement.classList.add('dark');
-              }
+              (function() {
+                try {
+                  const theme = localStorage.getItem('theme') || 'dark';
+                  const root = document.documentElement;
+                  if (theme === 'light') {
+                    root.classList.remove('dark');
+                    root.classList.add('light');
+                    root.setAttribute('data-theme', 'light');
+                  } else {
+                    root.classList.add('dark');
+                    root.classList.remove('light');
+                    root.setAttribute('data-theme', 'dark');
+                  }
+                } catch (e) {}
+              })();
             `,
           }}
         />
