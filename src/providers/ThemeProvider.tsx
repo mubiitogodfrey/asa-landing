@@ -33,9 +33,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const root = document.documentElement;
     
     if (newTheme === 'dark') {
+      root.setAttribute('data-theme', 'dark');
       root.classList.add('dark');
       root.classList.remove('light');
     } else {
+      root.setAttribute('data-theme', 'light');
       root.classList.add('light');
       root.classList.remove('dark');
     }
@@ -48,11 +50,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme(newTheme);
     applyTheme(newTheme);
   };
-
-  // Prevent hydration mismatch
-  if (!mounted) {
-    return <>{children}</>;
-  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
